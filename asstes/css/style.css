@@ -56,11 +56,20 @@ nav ul{
 nav ul li{
     display: inline-block;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 nav a{
     text-decoration: none;
-    color: var(--cor-fonte) ;
+    color: var(--cor-fonte);
+}
+
+.branco:hover{
+    color: var(--cor-fonte);
+}
+
+.carrinho{
+    cursor: pointer;
 }
 
 .banner p{
@@ -325,7 +334,7 @@ ul{
         position: absolute;
         top: 70px;
         left: 0;
-        background: var(--cor-btn-fonte);
+        background: var(--cor-fonte-corpo);
         width: 100%;
         overflow: hidden;
         transition: max-height 0.5s;
@@ -336,9 +345,14 @@ ul{
         margin-top: 10px;
         margin-right: 50px;
         margin-bottom: 10px;
+        cursor: pointer;
     }
 
-    nav ul li a{
+    nav ul li {
+        color: var(--cor-btn-fonte);
+    }
+
+    .branco:hover{
         color: var(--cor-fonte);
     }
 

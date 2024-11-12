@@ -1,11 +1,11 @@
-var MenuItens = document.getElementById("MenuItens");
+var MenuItenss = document.getElementById("MenuItenss");
 
-MenuItens.style.maxHeight = "0px";
+MenuItenss.style.maxHeight = "0px";
 
 function menucel(){
-    if(MenuItens.style.maxHeight == "0px"){
-        MenuItens.style.maxHeight = "200px";
+    if(MenuItenss.style.maxHeight == "0px"){
+        MenuItenss.style.maxHeight = "200px";
     }else{
-        MenuItens.style.maxHeight = "0px";
+        MenuItenss.style.maxHeight = "0px";
     }
 }
