@@ -1,9 +1,70 @@
-https://maykonsilveira.com.br/
+1. Tela para o Barbeiro / Dono do Site (Admin)
+Esta área será a parte administrativa do site, onde o barbeiro poderá gerenciar os agendamentos.
 
-https://www.lipsum.com/
+Funcionalidades:
+Visualização de Agendamentos:
 
-https://www.toptal.com/designers/htmlarrows/
+O barbeiro pode ver todos os agendamentos realizados, incluindo os dados do cliente (nome, telefone, horário agendado).
+A lista pode ser filtrada por data ou cliente.
+Remover Agendamento:
 
-https://fonts.google.com/specimen/Poppins
+O barbeiro pode remover um agendamento, caso o cliente não compareça ou se o cliente precisar cancelar.
+Um botão de "Remover" ao lado de cada agendamento permite isso.
+Alterar Agendamento:
 
-https://ionic.io/ionicons
+Caso o cliente queira alterar o horário, o barbeiro pode editar o horário diretamente da interface.
+O barbeiro pode alterar a data e o horário do agendamento no banco de dados.
+Adicionar Novo Agendamento:
+
+O barbeiro pode manualmente adicionar agendamentos, caso o cliente ligue para o local e deseje agendar.
+Layout Simples (Exemplo):
+Calendário de Agendamentos: Exibe os dias e horários já reservados.
+Lista de Clientes: Uma lista com os agendamentos, com botões de "Alterar" e "Remover".
+2. Tela para o Cliente
+Esta será a interface que o cliente utilizará para agendar e gerenciar seu horário.
+
+Funcionalidades:
+Formulário de Agendamento:
+
+O cliente seleciona a data e a hora disponíveis no calendário.
+Preenche o nome, telefone e outras informações necessárias (por exemplo, tipo de corte ou serviço desejado).
+Botão para Alterar Agendamento:
+
+Caso o cliente queira trocar a data ou horário, ele pode clicar em um botão "Alterar" ao lado do seu agendamento.
+Ele poderá escolher um novo horário e preencher novamente seus dados.
+Quando a alteração for feita, o sistema deve atualizar o agendamento no banco de dados e enviar uma notificação para o cliente confirmando a nova data/hora.
+Botão para Cancelar Agendamento:
+
+O cliente pode também ter um botão de "Cancelar" para remover o agendamento caso ele não possa comparecer.
+O sistema deve perguntar se ele tem certeza de que deseja cancelar e, após a confirmação, o agendamento é removido.
+Layout Simples (Exemplo):
+Calendário de Disponibilidade: Exibe os horários disponíveis e permite o cliente escolher um horário.
+Formulário de Dados: Nome, telefone e outros dados necessários.
+Botões de Alteração e Cancelamento: Botões para o cliente alterar ou remover o agendamento, com a data e hora já preenchidas.
+Exemplo de Funcionalidade de Alteração e Remoção de Agendamentos (PHP e MySQL)
+Banco de Dados:
+
+Tabela de Agendamentos:
+id (INT AUTO_INCREMENT)
+nome_cliente (VARCHAR)
+telefone_cliente (VARCHAR)
+data_agendamento (DATE)
+hora_agendamento (TIME)
+Página de Agendamento (Cliente):
+
+Formulário para seleção de data/hora.
+Após preencher, o agendamento é registrado no banco de dados.
+Página de Administração (Barbeiro):
+
+Visualizar todos os agendamentos.
+Botões de Remover e Alterar:
+Remover: Faz um DELETE no banco de dados para o agendamento.
+Alterar: Permite ao barbeiro editar a data e a hora, com um formulário que salva as mudanças no banco de dados.
+Página de Alteração (Cliente):
+
+O cliente pode alterar o agendamento preenchendo um novo formulário de agendamento.
+O sistema verifica se o horário escolhido está disponível e atualiza a tabela de agendamentos com as novas informações.
+Fluxo Simples:
+O cliente acessa o calendário, escolhe um horário, preenche seus dados e agenda.
+O barbeiro vê os agendamentos na tela administrativa, podendo remover ou alterar conforme necessário.
+O cliente, caso precise, pode alterar ou cancelar o agendamento a partir de um painel simples.

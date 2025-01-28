@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
-    margin: 0;
+    margin: 0px;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 :root{
@@ -20,6 +20,13 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
 }
 
 .banner{
@@ -61,10 +68,10 @@ nav ul li{
 
 nav a{
     text-decoration: none;
-    color: var(--cor-fonte);
+    color: var(--cor-btn-fonte);
 }
 
-.branco:hover{
+.nav, a:hover{
     color: var(--cor-fonte);
 }
 
@@ -87,9 +94,10 @@ p{
     justify-content: space-around;
 }
 
-.col-2{
-    flex-basis: 50%;
-    min-width: 300px;
+.col-2 {
+    flex:1; /* Se estiver usando flexbox */
+    max-width: 100vh; /* Limita a largura para dividir a tela em colunas */
+    align-items: flex-start;
 }
 
 .col-2 img{
@@ -100,8 +108,57 @@ p{
 .col-2 h1{
     font-size: 50px;
     line-height: 60px;
-    margin: 25px 0;
+    margin: 0;
+    padding: 0;
 }
+
+.insta {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--cor-fonte); /* Transparente para mostrar o gradiente */
+    background: linear-gradient(to right, #F7899D 50%, #F59FC3 50%);
+    background-clip: text; /* Faz o gradiente aplicar apenas no texto */
+    -webkit-background-clip: text;
+  }
+  
+  .insta span {
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* Oculta o texto para criar o efeito de digitação */
+    white-space: nowrap; /* Evita quebra de linha */
+    width: 0px; /* Inicialmente oculto */
+    animation: digita 8s steps(50) infinite; /* Animação de digitação */
+  }
+  
+  .insta span::after {
+    content: ""; /* Cursor piscando */
+    position: absolute;
+    height: 100%;
+    border-left: 10px solid black;
+    right: 0px;
+    width: calc(100% + 18px);
+    animation: cursor 0.4s steps(1) infinite;
+  }
+  
+  @keyframes digita {
+    0%, 100% {
+      width: 0; /* Começa e termina oculto */
+    }
+    50% {
+      width: 100%; /* Mostra o texto */
+    }
+  }
+  
+  @keyframes cursor {
+    0%, 50% {
+      opacity: 1; /* Cursor visível */
+    }
+    51%, 100% {
+      opacity: 0; /* Cursor invisível */
+    }
+  }
+  
 
 .col-2 p{
     font-weight: 600;
@@ -132,7 +189,10 @@ p{
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+    align-items: center;
+    justify-items: center;
 }
+
 
 .col-3{
     flex-basis: 30%;
@@ -197,11 +257,61 @@ h4{
     color: var(--cor-padrao);
 }
 
+ /* Container da barra de pesquisa */
+ .search-container {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: white;
+    padding: 0px;
+    margin-inline-start: 21%;
+  }
+
+  /* Barra de entrada de texto */
+  .search-bar {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+  }
+
+  /* Botão de pesquisa */
+  .search-button {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  /* Efeito hover no botão */
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+
 /*------ofertas--------*/
 
 
-.ofertas{
+.ofertas {
     background: radial-gradient(var(--cor-padrao), var(--cor-padrao-hover));
+    width: 100vw; /* Garante que a largura do fundo seja igual à largura da janela */
+    margin: 0; /* Remove margens externas */
+    padding: 0; /* Remove espaçamentos internos */
+    overflow-x: hidden; /* Impede o vazamento horizontal */
+    margin-left: 0px;
+}
+
+.linha {
+    width: 100%;
+    margin: 0 auto;
 }
 
 small{
@@ -226,7 +336,7 @@ small{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     background-color: var(--cor-padrao-hover);
     cursor: pointer;
-    transition: transform 05.s;
+    transition: transform 1s;
 }
 
 .depoimentos .col-3:hover{
@@ -327,9 +437,31 @@ ul{
     display: none;
 }
 
+.contatoss{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .contatoss a{
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    padding: 5px 0;
+  }
+
+  .contatoss a:hover{
+    color: var(--cor-btn-hover);
+  }
+
 /*-----Menu celular-------*/
 
 @media only screen and (max-width:800px){
+    .logoSouza{
+        width: 70px;
+    }
+
     nav ul{
         position: absolute;
         top: 70px;
@@ -360,11 +492,52 @@ ul{
         display: block;
         cursor: pointer;
     }
+
+    .search-container {
+        flex-direction:row;
+        margin-left: 40px;
+        gap: 5px;
+        padding: 15px;
+      }
+
+      .search-bar {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .search-button {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .contatoss{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .contatoss a{
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        padding: 5px 0;
+      }
+
+      .contatoss a:hover{
+        color: var(--cor-btn-hover);
+      }
 }
 
 /*--------- Cel 600---------*/
 
 @media only screen and (max-width:600px){
+
+    .logoSouza{
+        width: 70px;
+    }
+
 
     .linha{
         text-align: center;
@@ -372,6 +545,16 @@ ul{
 
     .col-2, .col-3, .col-4{
         flex-basis: 100%;
+    }
+
+    .ofertas{
+        width: 100%;
+        padding: 40px;
+        margin: 5px;
+    }
+
+    .btn, a{
+        font-size: 14px;
     }
 
     .col-2 h1{
@@ -385,4 +568,22 @@ ul{
     .col-4 p{
         font-size: 24px;
     }
+
+     .search-container {
+        flex-direction:row;
+        margin-left: 20px;
+        gap: 5px;
+        padding: 15px;
+      }
+
+      .search-bar {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .search-button {
+        font-size: 14px;
+        padding: 10px;
+      }
 }
